@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Domain
+namespace Richiban.Chess.Domain
 {
     public static class Extensions
     {

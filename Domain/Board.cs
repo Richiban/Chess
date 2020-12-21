@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Domain
+namespace Richiban.Chess.Domain
 {
     public class Board
     {

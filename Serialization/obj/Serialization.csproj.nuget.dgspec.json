@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Source\\Richiban\\Chess\\Serialization\\Serialization.csproj": {}
+    "c:\\Source\\Richiban\\Chess\\Serialization\\Serialization.csproj": {}
   },
   "projects": {
-    "C:\\Source\\Richiban\\Chess\\Serialization\\Serialization.csproj": {
+    "c:\\Source\\Richiban\\Chess\\Serialization\\Serialization.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Source\\Richiban\\Chess\\Serialization\\Serialization.csproj",
+        "projectUniqueName": "c:\\Source\\Richiban\\Chess\\Serialization\\Serialization.csproj",
         "projectName": "Serialization",
-        "projectPath": "C:\\Source\\Richiban\\Chess\\Serialization\\Serialization.csproj",
+        "projectPath": "c:\\Source\\Richiban\\Chess\\Serialization\\Serialization.csproj",
         "packagesPath": "C:\\Users\\richard.gibson\\.nuget\\packages\\",
-        "outputPath": "C:\\Source\\Richiban\\Chess\\Serialization\\obj\\",
+        "outputPath": "c:\\Source\\Richiban\\Chess\\Serialization\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

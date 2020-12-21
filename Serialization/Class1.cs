@@ -1,7 +1,7 @@
 ﻿using System;
-using Domain;
+using Richiban.Chess.Domain;
 
-namespace Serialization
+namespace Richiban.Chess.Serialization
 {
     public class BoardSerializer : IChessSerializer<Board>
     {

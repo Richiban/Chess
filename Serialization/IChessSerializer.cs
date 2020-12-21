@@ -1,4 +1,4 @@
-namespace Serialization
+namespace Richiban.Chess.Serialization
 {
     public interface IChessSerializer<T>
     {

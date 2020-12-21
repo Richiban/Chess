@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Source\\Richiban\\Chess\\Domain\\Domain.csproj": {}
+    "c:\\Source\\Richiban\\Chess\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "C:\\Source\\Richiban\\Chess\\Domain\\Domain.csproj": {
+    "c:\\Source\\Richiban\\Chess\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Source\\Richiban\\Chess\\Domain\\Domain.csproj",
+        "projectUniqueName": "c:\\Source\\Richiban\\Chess\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Source\\Richiban\\Chess\\Domain\\Domain.csproj",
+        "projectPath": "c:\\Source\\Richiban\\Chess\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\richard.gibson\\.nuget\\packages\\",
-        "outputPath": "C:\\Source\\Richiban\\Chess\\Domain\\obj\\",
+        "outputPath": "c:\\Source\\Richiban\\Chess\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

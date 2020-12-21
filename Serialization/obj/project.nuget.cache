@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Y4szlukYpd/C7cFqviNFhU+IC1M0fnoj9pljaHhh7YzwdsYrnbgMU5x4Z/XMrf4oIt0O8Y8oPkJuQ0nacsMlHA==",
+  "dgSpecHash": "1NsVNTTyx3yVvdfrBypK4ks9ruusboQlHden8SpzaRSjzY9T3zCKTwM2V3fU7UJV5Glxkhi+bMKJXTFBQe9JDA==",
   "success": true,
-  "projectFilePath": "C:\\Source\\Richiban\\Chess\\Serialization\\Serialization.csproj",
+  "projectFilePath": "c:\\Source\\Richiban\\Chess\\Serialization\\Serialization.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

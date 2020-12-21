@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lxxz6RTS9BSsM3Dg+wftwjPicubUgyyJnq7MgVyvx+pGl1qUilh1cfyVYLFeZNA9oWi71ke7ZH4G1Vns6YkW9w==",
+  "dgSpecHash": "KhrO9efRz2K6b92IeUVkODTxR08jglo2fioWVd9cC2l3Pnf8xS2IwaCtmEgDxcfolLvuHyYeZ0TOaeTOUe4HgA==",
   "success": true,
-  "projectFilePath": "C:\\Source\\Richiban\\Chess\\Domain\\Domain.csproj",
+  "projectFilePath": "c:\\Source\\Richiban\\Chess\\Domain\\Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

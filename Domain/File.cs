@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 
-namespace Domain
+namespace Richiban.Chess.Domain
 {
     public sealed class File
     {

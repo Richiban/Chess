@@ -1,6 +1,6 @@
 using System;
 
-namespace Domain
+namespace Richiban.Chess.Domain
 {
     public abstract class Colour
     {
