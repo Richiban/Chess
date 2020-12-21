@@ -29,7 +29,7 @@ namespace Domain
                 yield return attackSquareRight.Force();
             }
 
-            if (moveSquare.Map(boardState.IsOccupied) | false)
+            if (moveSquare.Map(boardState.IsEmpty) | false)
             {
                 yield return moveSquare.Force();
             }

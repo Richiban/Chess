@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Domain
 {
@@ -11,12 +10,10 @@ namespace Domain
 
         internal Option<Piece> GetOccupant(Position position)
         {
-            throw new NotImplementedException();
+            return Placements.FirstOrNone(pos => pos.Position.Equals(position)).Map(it => it.Piece);
         }
 
-        internal bool IsOccupied(Position position)
-        {
-            throw new NotImplementedException();
-        }
+        internal bool IsEmpty(Position position) =>
+            GetOccupant(position).HasValue == false;
     }
 }

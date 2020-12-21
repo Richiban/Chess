@@ -1,5 +1,5 @@
 namespace Domain
 {
-    public sealed record Placement(Piece piece, Position position);
+    public sealed record Placement(Piece Piece, Position Position);
 
 }
