@@ -15,10 +15,10 @@ namespace Richiban.Chess.Domain
 
         public override IEnumerable<Move> GetLegalMoves(Board boardState, Position currentPosition, bool isFirstMove = false)
         {
-            var moveSquare = Colour.Advance(currentPosition, 1, 0);
-            var moveSquare2 = Colour.Advance(currentPosition, 2, 0);
-            var attackSquareLeft = Colour.Advance(currentPosition, 1, -1);
-            var attackSquareRight = Colour.Advance(currentPosition, 1, +1);
+            var moveSquare = Colour.Advance(currentPosition, new ChessVector(0, 1));
+            var moveSquare2 = Colour.Advance(currentPosition, new ChessVector(0, 2));
+            var attackSquareLeft = Colour.Advance(currentPosition, new ChessVector(-1, +1));
+            var attackSquareRight = Colour.Advance(currentPosition, new ChessVector(+1, +1));
 
             if (attackSquareLeft.Bind(boardState.GetOccupant).Map(CanTake) | false)
             {

@@ -20,12 +20,12 @@ namespace Tests
 
             var actual = sut.GetLegalMoves(board, position).ToList();
 
-            actual.ShouldHaveSingleItem();
-            actual.ShouldAllBe(mv => mv.Piece == sut);
-            actual.ShouldAllBe(mv => mv.Origin == position);
+            var move = actual.ShouldHaveSingleItem();
+            move.Piece.ShouldBe(sut);
+            move.Origin.ShouldBe(position);
 
-            actual[0].Destination.Rank.ShouldBe(Rank.Rank3);
-            actual[0].Destination.File.ShouldBe(File.E);
+            move.Destination.Rank.ShouldBe(Rank.Rank3);
+            move.Destination.File.ShouldBe(File.E);
         }
 
         [Test]

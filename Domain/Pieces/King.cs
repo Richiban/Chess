@@ -35,22 +35,10 @@ namespace Richiban.Chess.Domain
             return moves;
         }
 
-        private IEnumerable<Position> GetMoveSquares(Position currentPosition)
-        {
-            var moves = new[] {
-                (+1, -1),
-                (+1, +0),
-                (+1, +1),
-                (+0, -1),
-                (+0, +1),
-                (-1, -1),
-                (-1, +0),
-                (-1, +1),
-            }
-                .Select(t => Colour.Advance(currentPosition, t.Item1, t.Item2))
+        private IEnumerable<Position> GetMoveSquares(Position currentPosition) =>
+            Bcl.Enumerable.Unreduce(new ChessVector(+1, +1), v => v.RotateRight(ChessVector.RotateAngle.OneInEight))
+                .Take(8)
+                .Select(v => Colour.Advance(currentPosition, v))
                 .Somes();
-
-            return moves;
-        }
     }
 }
