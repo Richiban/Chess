@@ -39,8 +39,7 @@ namespace Richiban.Chess.Domain
         private IEnumerable<Position> GetMoveSquares(Board board, Position currentPosition)
         {
             var directions =
-                Bcl.Enumerable.Unreduce(new ChessVector(1, 1), v => v.RotateRight(ChessVector.RotateAngle.OneInFour))
-                .Take(4);
+                new ChessVector(1, 1).GetRotations(ChessVector.RotateAngle.OneInFour);
 
             foreach (var direction in directions)
             {

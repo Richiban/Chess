@@ -5,7 +5,7 @@ namespace Richiban.Chess.Bcl
 {
     public static class Enumerable
     {
-        public static IEnumerable<T> Unreduce<T>(T seed, Func<T, T> f)
+        public static IEnumerable<T> Unfold<T>(T seed, Func<T, T> f)
         {
             var state = seed;
 

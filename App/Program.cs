@@ -9,13 +9,13 @@ namespace Chess
     {
         static void Main(string[] args)
         {
-            var piece = new Bishop(Colour.White);
-            var board = new Board(new Placement(new Pawn(Colour.Black), F5));
+            var piece = new Knight(Colour.White);
+            var board = new Board(new Placement(new Pawn(Colour.Black), E6));
             var currentPosition = E4;
 
             var moves = piece.GetLegalMoves(board, currentPosition).ToList();
 
-            Console.WriteLine($"Bishop moves ({moves.Count}) from {currentPosition}:");
+            Console.WriteLine($"{piece} moves ({moves.Count}) from {currentPosition}:");
 
             foreach (var move in moves)
             {

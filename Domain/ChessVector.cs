@@ -1,10 +1,27 @@
 using System;
+using System.Collections.Generic;
+using System.Collections.Immutable;
+using System.Linq;
 
 namespace Richiban.Chess.Domain
 {
     public sealed record ChessVector(int Files, int Ranks)
     {
-        public ChessVector RotateRight(RotateAngle angle)
+        public IReadOnlyCollection<ChessVector> GetRotations(RotateAngle angle)
+        {
+            var count = angle switch
+            {
+                RotateAngle.OneInFour => 4,
+                RotateAngle.OneInEight => 8,
+                _ => throw new InvalidOperationException($"Unrecognised {nameof(RotateAngle)}: {angle}")
+            };
+
+            return Bcl.Enumerable.Unfold(this, v => v.RotateRight(angle))
+                .Take(count)
+                .ToImmutableList();
+        }
+
+        private ChessVector RotateRight(RotateAngle angle)
         {
             switch (angle)
             {

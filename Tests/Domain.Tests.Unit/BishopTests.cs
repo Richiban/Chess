@@ -3,8 +3,7 @@ using System.Linq;
 using NUnit.Framework;
 using Richiban.Chess.Domain;
 using Shouldly;
-using static Richiban.Chess.Domain.Rank;
-using static Richiban.Chess.Domain.File;
+using static Richiban.Chess.Domain.Positions;
 
 namespace Tests
 {
@@ -16,27 +15,27 @@ namespace Tests
         {
             var sut = new Bishop(Colour.White);
             var board = new Board();
-            var position = new Position(E, _4);
+            var position = E4;
 
             var actual = sut.GetLegalMoves(board, position).ToList();
 
             actual.ShouldBe(new[] {
-                new Move(sut, position, new Position(F, _5)) { IsTake = false },
-                new Move(sut, position, new Position(G, _6)) { IsTake = false },
-                new Move(sut, position, new Position(H, _7)) { IsTake = false },
+                new Move(sut, position, F5) { IsTake = false },
+                new Move(sut, position, G6) { IsTake = false },
+                new Move(sut, position, H7) { IsTake = false },
 
-                new Move(sut, position, new Position(F, _3)) { IsTake = false },
-                new Move(sut, position, new Position(G, _2)) { IsTake = false },
-                new Move(sut, position, new Position(H, _1)) { IsTake = false },
+                new Move(sut, position, F3) { IsTake = false },
+                new Move(sut, position, G2) { IsTake = false },
+                new Move(sut, position, H1) { IsTake = false },
 
-                new Move(sut, position, new Position(D, _5)) { IsTake = false },
-                new Move(sut, position, new Position(C, _6)) { IsTake = false },
-                new Move(sut, position, new Position(B, _7)) { IsTake = false },
-                new Move(sut, position, new Position(A, _8)) { IsTake = false },
+                new Move(sut, position, D5) { IsTake = false },
+                new Move(sut, position, C6) { IsTake = false },
+                new Move(sut, position, B7) { IsTake = false },
+                new Move(sut, position, A8) { IsTake = false },
 
-                new Move(sut, position, new Position(D, _3)) { IsTake = false },
-                new Move(sut, position, new Position(C, _2)) { IsTake = false },
-                new Move(sut, position, new Position(B, _1)) { IsTake = false }
+                new Move(sut, position, D3) { IsTake = false },
+                new Move(sut, position, C2) { IsTake = false },
+                new Move(sut, position, B1) { IsTake = false }
             }, ignoreOrder: true);
         }
 
@@ -44,24 +43,24 @@ namespace Tests
         public void TestBlockedMove()
         {
             var sut = new Bishop(Colour.White);
-            var position = new Position(E, _4);
-            var board = new Board(new Placement(new Bishop(Colour.White), new Position(F, _5)));
+            var position = E4;
+            var board = new Board(new Placement(new Bishop(Colour.White), F5));
 
             var actual = sut.GetLegalMoves(board, position).ToList();
 
             actual.ShouldBe(new[] {
-                new Move(sut, position, new Position(F, _3)) { IsTake = false },
-                new Move(sut, position, new Position(G, _2)) { IsTake = false },
-                new Move(sut, position, new Position(H, _1)) { IsTake = false },
+                new Move(sut, position, F3) { IsTake = false },
+                new Move(sut, position, G2) { IsTake = false },
+                new Move(sut, position, H1) { IsTake = false },
 
-                new Move(sut, position, new Position(D, _5)) { IsTake = false },
-                new Move(sut, position, new Position(C, _6)) { IsTake = false },
-                new Move(sut, position, new Position(B, _7)) { IsTake = false },
-                new Move(sut, position, new Position(A, _8)) { IsTake = false },
+                new Move(sut, position, D5) { IsTake = false },
+                new Move(sut, position, C6) { IsTake = false },
+                new Move(sut, position, B7) { IsTake = false },
+                new Move(sut, position, A8) { IsTake = false },
 
-                new Move(sut, position, new Position(D, _3)) { IsTake = false },
-                new Move(sut, position, new Position(C, _2)) { IsTake = false },
-                new Move(sut, position, new Position(B, _1)) { IsTake = false }
+                new Move(sut, position, D3) { IsTake = false },
+                new Move(sut, position, C2) { IsTake = false },
+                new Move(sut, position, B1) { IsTake = false }
             }, ignoreOrder: true);
         }
 
@@ -69,26 +68,26 @@ namespace Tests
         public void TestTake()
         {
             var sut = new Bishop(Colour.White);
-            var position = new Position(E, _4);
-            var board = new Board(new Placement(new Bishop(Colour.Black), new Position(F, _5)));
+            var position = E4;
+            var board = new Board(new Placement(new Bishop(Colour.Black), F5));
 
             var actual = sut.GetLegalMoves(board, position).ToList();
 
             actual.ShouldBe(new[] {
-                new Move(sut, position, new Position(F, _5)) { IsTake = true },
+                new Move(sut, position, F5) { IsTake = true },
 
-                new Move(sut, position, new Position(F, _3)) { IsTake = false },
-                new Move(sut, position, new Position(G, _2)) { IsTake = false },
-                new Move(sut, position, new Position(H, _1)) { IsTake = false },
+                new Move(sut, position, F3) { IsTake = false },
+                new Move(sut, position, G2) { IsTake = false },
+                new Move(sut, position, H1) { IsTake = false },
 
-                new Move(sut, position, new Position(D, _5)) { IsTake = false },
-                new Move(sut, position, new Position(C, _6)) { IsTake = false },
-                new Move(sut, position, new Position(B, _7)) { IsTake = false },
-                new Move(sut, position, new Position(A, _8)) { IsTake = false },
+                new Move(sut, position, D5) { IsTake = false },
+                new Move(sut, position, C6) { IsTake = false },
+                new Move(sut, position, B7) { IsTake = false },
+                new Move(sut, position, A8) { IsTake = false },
 
-                new Move(sut, position, new Position(D, _3)) { IsTake = false },
-                new Move(sut, position, new Position(C, _2)) { IsTake = false },
-                new Move(sut, position, new Position(B, _1)) { IsTake = false }
+                new Move(sut, position, D3) { IsTake = false },
+                new Move(sut, position, C2) { IsTake = false },
+                new Move(sut, position, B1) { IsTake = false }
             }, ignoreOrder: true);
         }
     }

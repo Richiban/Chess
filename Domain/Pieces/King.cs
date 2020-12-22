@@ -36,7 +36,7 @@ namespace Richiban.Chess.Domain
         }
 
         private IEnumerable<Position> GetMoveSquares(Position currentPosition) =>
-            Bcl.Enumerable.Unreduce(new ChessVector(+1, +1), v => v.RotateRight(ChessVector.RotateAngle.OneInEight))
+            new ChessVector(+1, +1).GetRotations(ChessVector.RotateAngle.OneInEight)
                 .Take(8)
                 .Select(v => Colour.Advance(currentPosition, v))
                 .Somes();
