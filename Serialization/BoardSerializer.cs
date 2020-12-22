@@ -10,4 +10,5 @@ namespace Richiban.Chess.Serialization
             return "";
         }
     }
+
 }
