@@ -1,4 +1,5 @@
 using System;
+using Richiban.Chess.Bcl;
 
 namespace Richiban.Chess.Domain
 {

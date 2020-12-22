@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "1NsVNTTyx3yVvdfrBypK4ks9ruusboQlHden8SpzaRSjzY9T3zCKTwM2V3fU7UJV5Glxkhi+bMKJXTFBQe9JDA==",
+  "dgSpecHash": "HxoPOWppNqM/nDe81zofELrtGANqTA7+rQDQyuBPDImQ3z/Tby5Tq78i/8R5Db+0S40IM5/ZyfS7vDLCjgem4Q==",
   "success": true,
   "projectFilePath": "c:\\Source\\Richiban\\Chess\\Serialization\\Serialization.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\richard.gibson\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -1,0 +1,15 @@
+C:\Source\Richiban\Chess\Domain\obj\Debug\net5.0\Domain.csprojAssemblyReference.cache
+C:\Source\Richiban\Chess\Domain\obj\Debug\net5.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Source\Richiban\Chess\Domain\obj\Debug\net5.0\Domain.AssemblyInfoInputs.cache
+C:\Source\Richiban\Chess\Domain\obj\Debug\net5.0\Domain.AssemblyInfo.cs
+C:\Source\Richiban\Chess\Domain\obj\Debug\net5.0\Domain.csproj.CoreCompileInputs.cache
+C:\Source\Richiban\Chess\Domain\bin\Debug\net5.0\Richiban.Chess.Domain.deps.json
+C:\Source\Richiban\Chess\Domain\bin\Debug\net5.0\Richiban.Chess.Domain.dll
+C:\Source\Richiban\Chess\Domain\bin\Debug\net5.0\ref\Richiban.Chess.Domain.dll
+C:\Source\Richiban\Chess\Domain\bin\Debug\net5.0\Richiban.Chess.Domain.pdb
+C:\Source\Richiban\Chess\Domain\bin\Debug\net5.0\BCL.dll
+C:\Source\Richiban\Chess\Domain\bin\Debug\net5.0\BCL.pdb
+C:\Source\Richiban\Chess\Domain\obj\Debug\net5.0\Domain.csproj.CopyComplete
+C:\Source\Richiban\Chess\Domain\obj\Debug\net5.0\Richiban.Chess.Domain.dll
+C:\Source\Richiban\Chess\Domain\obj\Debug\net5.0\ref\Richiban.Chess.Domain.dll
+C:\Source\Richiban\Chess\Domain\obj\Debug\net5.0\Richiban.Chess.Domain.pdb

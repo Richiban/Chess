@@ -1,20 +1,25 @@
 using System;
 using System.Linq;
+using Richiban.Chess.Bcl;
 
 namespace Richiban.Chess.Domain
 {
     public sealed class File
     {
-        private File() { }
+        private File(string name) { Name = name; }
 
-        public static File A { get; } = new File();
-        public static File B { get; } = new File();
-        public static File C { get; } = new File();
-        public static File D { get; } = new File();
-        public static File E { get; } = new File();
-        public static File F { get; } = new File();
-        public static File G { get; } = new File();
-        public static File H { get; } = new File();
+        public string Name { get; }
+
+        public static File A { get; } = new File("A");
+        public static File B { get; } = new File("B");
+        public static File C { get; } = new File("C");
+        public static File D { get; } = new File("D");
+        public static File E { get; } = new File("E");
+        public static File F { get; } = new File("F");
+        public static File G { get; } = new File("G");
+        public static File H { get; } = new File("H");
+
+        public override string ToString() => Name;
 
         public static Option<File> operator +(File File, int squares)
         {
@@ -22,9 +27,9 @@ namespace Richiban.Chess.Domain
             {
                 var state = (Option<File>)File;
 
-                foreach (var i in Enumerable.Range(0, Math.Abs(squares)))
+                foreach (var i in System.Linq.Enumerable.Range(0, Math.Abs(squares)))
                 {
-                    state = state.Bind(state => state.Right);
+                    state = state.Bind(f);
                 }
 
                 return state;

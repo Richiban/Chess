@@ -1,4 +1,7 @@
 namespace Richiban.Chess.Domain
 {
-    public sealed record Move(Piece piece, Position origin, Position destination);
+    public sealed record Move(Piece Piece, Position Origin, Position Destination)
+    {
+        public bool IsTake { get; init; }
+    }
 }

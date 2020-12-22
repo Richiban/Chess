@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "KhrO9efRz2K6b92IeUVkODTxR08jglo2fioWVd9cC2l3Pnf8xS2IwaCtmEgDxcfolLvuHyYeZ0TOaeTOUe4HgA==",
+  "dgSpecHash": "fYJi5+wLXx7ZwtEO0fLkbpM8uOouNDBdMj741AowlqG1GvgoJbYPFj8D50rtNJZsUcTRpnqrp+80qBxCFn69dQ==",
   "success": true,
   "projectFilePath": "c:\\Source\\Richiban\\Chess\\Domain\\Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\richard.gibson\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

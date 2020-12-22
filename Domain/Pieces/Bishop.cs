@@ -1,4 +1,7 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using Richiban.Chess.Bcl;
 
 namespace Richiban.Chess.Domain
 {
@@ -13,9 +16,29 @@ namespace Richiban.Chess.Domain
 
         public override Colour Colour { get; }
 
-        public override IEnumerable<Position> GetLegalMoves(Board board, Position currentPosition)
+        public override IEnumerable<Move> GetLegalMoves(Board board, Position currentPosition, bool _ = default)
         {
-            throw new System.NotImplementedException();
+            var moves =
+                GetMoveSquares(currentPosition)
+                .SelectWhere(pos =>
+                {
+                    if (board.IsEmpty(pos))
+                        return new Move(this, currentPosition, pos);
+
+                    if (board.GetOccupant(pos).IsSome(out var piece) && CanTake(piece))
+                    {
+                        return new Move(this, currentPosition, pos) { IsTake = true };
+                    }
+
+                    return new Option<Move>();
+                });
+
+            return moves;
+        }
+
+        private IEnumerable<Position> GetMoveSquares(Position currentPosition)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,20 +1,25 @@
 using System;
 using System.Linq;
+using Richiban.Chess.Bcl;
 
 namespace Richiban.Chess.Domain
 {
     public sealed class Rank
     {
-        private Rank() { }
+        private Rank(string name) { Name = name; }
 
-        public static Rank Rank1 { get; } = new Rank();
-        public static Rank Rank2 { get; } = new Rank();
-        public static Rank Rank3 { get; } = new Rank();
-        public static Rank Rank4 { get; } = new Rank();
-        public static Rank Rank5 { get; } = new Rank();
-        public static Rank Rank6 { get; } = new Rank();
-        public static Rank Rank7 { get; } = new Rank();
-        public static Rank Rank8 { get; } = new Rank();
+        public string Name { get; }
+
+        public static Rank Rank1 { get; } = new Rank("1");
+        public static Rank Rank2 { get; } = new Rank("2");
+        public static Rank Rank3 { get; } = new Rank("3");
+        public static Rank Rank4 { get; } = new Rank("4");
+        public static Rank Rank5 { get; } = new Rank("5");
+        public static Rank Rank6 { get; } = new Rank("6");
+        public static Rank Rank7 { get; } = new Rank("7");
+        public static Rank Rank8 { get; } = new Rank("8");
+
+        public override string ToString() => Name;
 
         public static Option<Rank> operator +(Rank rank, int squares)
         {
@@ -22,9 +27,9 @@ namespace Richiban.Chess.Domain
             {
                 var state = (Option<Rank>)rank;
 
-                foreach (var i in Enumerable.Range(0, Math.Abs(squares)))
+                foreach (var i in System.Linq.Enumerable.Range(0, Math.Abs(squares)))
                 {
-                    state = state.Bind(state => state.Up);
+                    state = state.Bind(f);
                 }
 
                 return state;
