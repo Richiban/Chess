@@ -2,6 +2,7 @@
 using System.Collections.Immutable;
 using System.Linq;
 using Richiban.Chess.Bcl;
+using static Richiban.Chess.Domain.Positions;
 
 namespace Richiban.Chess.Domain
 {
@@ -15,48 +16,48 @@ namespace Richiban.Chess.Domain
         }
 
         public static Board StartingBoard => new Board(
-            new Placement(new Pawn(Colour.White), new Position(Rank.Rank2, File.A)),
-            new Placement(new Pawn(Colour.White), new Position(Rank.Rank2, File.B)),
-            new Placement(new Pawn(Colour.White), new Position(Rank.Rank2, File.C)),
-            new Placement(new Pawn(Colour.White), new Position(Rank.Rank2, File.D)),
-            new Placement(new Pawn(Colour.White), new Position(Rank.Rank2, File.E)),
-            new Placement(new Pawn(Colour.White), new Position(Rank.Rank2, File.F)),
-            new Placement(new Pawn(Colour.White), new Position(Rank.Rank2, File.G)),
-            new Placement(new Pawn(Colour.White), new Position(Rank.Rank2, File.H)),
+            new Placement(new Pawn(Colour.White), A2),
+            new Placement(new Pawn(Colour.White), B2),
+            new Placement(new Pawn(Colour.White), C2),
+            new Placement(new Pawn(Colour.White), D2),
+            new Placement(new Pawn(Colour.White), E2),
+            new Placement(new Pawn(Colour.White), F2),
+            new Placement(new Pawn(Colour.White), G2),
+            new Placement(new Pawn(Colour.White), H2),
 
-            new Placement(new King(Colour.White), new Position(Rank.Rank1, File.E)),
-            new Placement(new Queen(Colour.White), new Position(Rank.Rank1, File.D)),
+            new Placement(new King(Colour.White), E1),
+            new Placement(new Queen(Colour.White), D1),
 
-            new Placement(new Bishop(Colour.White), new Position(Rank.Rank1, File.C)),
-            new Placement(new Bishop(Colour.White), new Position(Rank.Rank1, File.F)),
+            new Placement(new Bishop(Colour.White), C1),
+            new Placement(new Bishop(Colour.White), F1),
 
-            new Placement(new Knight(Colour.White), new Position(Rank.Rank1, File.B)),
-            new Placement(new Knight(Colour.White), new Position(Rank.Rank1, File.G)),
+            new Placement(new Knight(Colour.White), B1),
+            new Placement(new Knight(Colour.White), G1),
 
-            new Placement(new Rook(Colour.White), new Position(Rank.Rank1, File.A)),
-            new Placement(new Rook(Colour.White), new Position(Rank.Rank1, File.H)),
+            new Placement(new Rook(Colour.White), A1),
+            new Placement(new Rook(Colour.White), H1),
 
 
-            new Placement(new Pawn(Colour.Black), new Position(Rank.Rank7, File.A)),
-            new Placement(new Pawn(Colour.Black), new Position(Rank.Rank7, File.B)),
-            new Placement(new Pawn(Colour.Black), new Position(Rank.Rank7, File.C)),
-            new Placement(new Pawn(Colour.Black), new Position(Rank.Rank7, File.D)),
-            new Placement(new Pawn(Colour.Black), new Position(Rank.Rank7, File.E)),
-            new Placement(new Pawn(Colour.Black), new Position(Rank.Rank7, File.F)),
-            new Placement(new Pawn(Colour.Black), new Position(Rank.Rank7, File.G)),
-            new Placement(new Pawn(Colour.Black), new Position(Rank.Rank7, File.H)),
+            new Placement(new Pawn(Colour.Black), A7),
+            new Placement(new Pawn(Colour.Black), B7),
+            new Placement(new Pawn(Colour.Black), C7),
+            new Placement(new Pawn(Colour.Black), D7),
+            new Placement(new Pawn(Colour.Black), E7),
+            new Placement(new Pawn(Colour.Black), F7),
+            new Placement(new Pawn(Colour.Black), G7),
+            new Placement(new Pawn(Colour.Black), H7),
 
-            new Placement(new King(Colour.Black), new Position(Rank.Rank8, File.E)),
-            new Placement(new Queen(Colour.Black), new Position(Rank.Rank8, File.D)),
+            new Placement(new King(Colour.Black), E8),
+            new Placement(new Queen(Colour.Black), D8),
 
-            new Placement(new Bishop(Colour.Black), new Position(Rank.Rank8, File.C)),
-            new Placement(new Bishop(Colour.Black), new Position(Rank.Rank8, File.F)),
+            new Placement(new Bishop(Colour.Black), C8),
+            new Placement(new Bishop(Colour.Black), F8),
 
-            new Placement(new Knight(Colour.Black), new Position(Rank.Rank8, File.B)),
-            new Placement(new Knight(Colour.Black), new Position(Rank.Rank8, File.G)),
+            new Placement(new Knight(Colour.Black), B8),
+            new Placement(new Knight(Colour.Black), G8),
 
-            new Placement(new Rook(Colour.Black), new Position(Rank.Rank8, File.A)),
-            new Placement(new Rook(Colour.Black), new Position(Rank.Rank8, File.H))
+            new Placement(new Rook(Colour.Black), A8),
+            new Placement(new Rook(Colour.Black), H8)
         );
 
         public IReadOnlyCollection<Placement> Placements => _placements;

@@ -16,7 +16,7 @@ namespace Tests
         {
             var sut = new Pawn(Colour.White);
             var board = new Board();
-            var position = new Position(Rank.Rank2, File.E);
+            var position = new Position(E, _2);
 
             var actual = sut.GetLegalMoves(board, position).ToList();
 
@@ -24,7 +24,7 @@ namespace Tests
             move.Piece.ShouldBe(sut);
             move.Origin.ShouldBe(position);
 
-            move.Destination.Rank.ShouldBe(Rank.Rank3);
+            move.Destination.Rank.ShouldBe(Rank._3);
             move.Destination.File.ShouldBe(File.E);
         }
 
@@ -32,8 +32,8 @@ namespace Tests
         public void TestBlockedMove()
         {
             var sut = new Pawn(Colour.White);
-            var position = new Position(Rank.Rank2, File.E);
-            var board = new Board(new Placement(new Pawn(Colour.Black), new Position(Rank.Rank3, File.E)));
+            var position = new Position(E, _2);
+            var board = new Board(new Placement(new Pawn(Colour.Black), new Position(E, _3)));
 
             var actual = sut.GetLegalMoves(board, position).ToList();
 
@@ -44,8 +44,8 @@ namespace Tests
         public void TestPassThroughBlock()
         {
             var sut = new Pawn(Colour.White);
-            var position = new Position(Rank.Rank2, File.E);
-            var board = new Board(new Placement(new Pawn(Colour.Black), new Position(Rank.Rank3, File.E)));
+            var position = new Position(E, _2);
+            var board = new Board(new Placement(new Pawn(Colour.Black), new Position(E, _3)));
 
             var actual = sut.GetLegalMoves(board, position, isFirstMove: true).ToList();
 
@@ -56,7 +56,7 @@ namespace Tests
         public void TestTwoPlaceFirstMove()
         {
             var sut = new Pawn(Colour.White);
-            var position = new Position(Rank.Rank2, File.E);
+            var position = new Position(E, _2);
             var board = new Board(new Placement(sut, position));
 
             var actual = sut.GetLegalMoves(board, position, isFirstMove: true).ToList();
@@ -65,10 +65,10 @@ namespace Tests
             actual.ShouldAllBe(mv => mv.Piece == sut);
             actual.ShouldAllBe(mv => mv.Origin == position);
 
-            actual[0].Destination.Rank.ShouldBe(Rank.Rank3);
+            actual[0].Destination.Rank.ShouldBe(Rank._3);
             actual[0].Destination.File.ShouldBe(File.E);
 
-            actual[1].Destination.Rank.ShouldBe(Rank.Rank4);
+            actual[1].Destination.Rank.ShouldBe(Rank._4);
             actual[1].Destination.File.ShouldBe(File.E);
         }
 
@@ -76,8 +76,8 @@ namespace Tests
         public void TestTakeMoveAndStraightMove()
         {
             var sut = new Pawn(Colour.White);
-            var board = new Board(new Placement(new Pawn(Colour.Black), new Position(Rank.Rank3, File.F)));
-            var position = new Position(Rank.Rank2, File.E);
+            var board = new Board(new Placement(new Pawn(Colour.Black), new Position(F, _3)));
+            var position = new Position(E, _2);
 
             var actual = sut.GetLegalMoves(board, position).ToList();
 
@@ -85,9 +85,9 @@ namespace Tests
             actual.ShouldAllBe(mv => mv.Piece == sut);
             actual.ShouldAllBe(mv => mv.Origin == position);
 
-            actual.ShouldContain(mv => mv.Destination.Rank == (Rank3) && mv.Destination.File == (E));
+            actual.ShouldContain(mv => mv.Destination.Rank == (_3) && mv.Destination.File == (E));
 
-            actual[0].Destination.Rank.ShouldBe(Rank.Rank3);
+            actual[0].Destination.Rank.ShouldBe(Rank._3);
             actual[0].Destination.File.ShouldBe(File.F);
             actual[0].IsTake.ShouldBe(true);
         }

@@ -16,7 +16,7 @@ namespace Tests
         {
             var sut = new Knight(Colour.White);
             var board = new Board();
-            var position = new Position(Rank.Rank4, File.E);
+            var position = new Position(E, _4);
 
             var actual = sut.GetLegalMoves(board, position).ToList();
 
@@ -25,25 +25,25 @@ namespace Tests
             actual.ShouldAllBe(mv => mv.Origin == position);
             actual.ShouldAllBe(mv => mv.IsTake == false);
 
-            actual.ShouldContain(mv => mv.Destination.Rank == Rank6 && mv.Destination.File == D);
-            actual.ShouldContain(mv => mv.Destination.Rank == Rank6 && mv.Destination.File == F);
+            actual.ShouldContain(mv => mv.Destination.Rank == _6 && mv.Destination.File == D);
+            actual.ShouldContain(mv => mv.Destination.Rank == _6 && mv.Destination.File == F);
 
-            actual.ShouldContain(mv => mv.Destination.Rank == Rank5 && mv.Destination.File == G);
-            actual.ShouldContain(mv => mv.Destination.Rank == Rank3 && mv.Destination.File == G);
+            actual.ShouldContain(mv => mv.Destination.Rank == _5 && mv.Destination.File == G);
+            actual.ShouldContain(mv => mv.Destination.Rank == _3 && mv.Destination.File == G);
 
-            actual.ShouldContain(mv => mv.Destination.Rank == Rank2 && mv.Destination.File == D);
-            actual.ShouldContain(mv => mv.Destination.Rank == Rank2 && mv.Destination.File == F);
+            actual.ShouldContain(mv => mv.Destination.Rank == _2 && mv.Destination.File == D);
+            actual.ShouldContain(mv => mv.Destination.Rank == _2 && mv.Destination.File == F);
 
-            actual.ShouldContain(mv => mv.Destination.Rank == Rank5 && mv.Destination.File == C);
-            actual.ShouldContain(mv => mv.Destination.Rank == Rank3 && mv.Destination.File == C);
+            actual.ShouldContain(mv => mv.Destination.Rank == _5 && mv.Destination.File == C);
+            actual.ShouldContain(mv => mv.Destination.Rank == _3 && mv.Destination.File == C);
         }
 
         [Test]
         public void MoveBlockedByFriendlyPiece()
         {
             var sut = new Knight(Colour.White);
-            var position = new Position(Rank.Rank4, File.E);
-            var board = new Board(new Placement(new Pawn(Colour.White), new Position(Rank2, D)));
+            var position = new Position(E, _4);
+            var board = new Board(new Placement(new Pawn(Colour.White), new Position(D, _2)));
 
             var actual = sut.GetLegalMoves(board, position).ToList();
 
@@ -52,24 +52,24 @@ namespace Tests
             actual.ShouldAllBe(mv => mv.Origin == position);
             actual.ShouldAllBe(mv => mv.IsTake == false);
 
-            actual.ShouldContain(mv => mv.Destination.Rank == Rank6 && mv.Destination.File == D);
-            actual.ShouldContain(mv => mv.Destination.Rank == Rank6 && mv.Destination.File == F);
+            actual.ShouldContain(mv => mv.Destination.Rank == _6 && mv.Destination.File == D);
+            actual.ShouldContain(mv => mv.Destination.Rank == _6 && mv.Destination.File == F);
 
-            actual.ShouldContain(mv => mv.Destination.Rank == Rank5 && mv.Destination.File == G);
-            actual.ShouldContain(mv => mv.Destination.Rank == Rank3 && mv.Destination.File == G);
+            actual.ShouldContain(mv => mv.Destination.Rank == _5 && mv.Destination.File == G);
+            actual.ShouldContain(mv => mv.Destination.Rank == _3 && mv.Destination.File == G);
 
-            actual.ShouldContain(mv => mv.Destination.Rank == Rank2 && mv.Destination.File == F);
+            actual.ShouldContain(mv => mv.Destination.Rank == _2 && mv.Destination.File == F);
 
-            actual.ShouldContain(mv => mv.Destination.Rank == Rank5 && mv.Destination.File == C);
-            actual.ShouldContain(mv => mv.Destination.Rank == Rank3 && mv.Destination.File == C);
+            actual.ShouldContain(mv => mv.Destination.Rank == _5 && mv.Destination.File == C);
+            actual.ShouldContain(mv => mv.Destination.Rank == _3 && mv.Destination.File == C);
         }
 
         [Test]
         public void TakeAvailable()
         {
             var sut = new Knight(Colour.White);
-            var position = new Position(Rank.Rank4, File.E);
-            var board = new Board(new Placement(new Pawn(Colour.Black), new Position(Rank2, D)));
+            var position = new Position(E, _4);
+            var board = new Board(new Placement(new Pawn(Colour.Black), new Position(D, _2)));
 
             var actual = sut.GetLegalMoves(board, position).ToList();
 
@@ -77,17 +77,17 @@ namespace Tests
             actual.ShouldAllBe(mv => mv.Piece == sut);
             actual.ShouldAllBe(mv => mv.Origin == position);
 
-            actual.ShouldContain(mv => mv.Destination.Rank == Rank6 && mv.Destination.File == D && mv.IsTake == false);
-            actual.ShouldContain(mv => mv.Destination.Rank == Rank6 && mv.Destination.File == F && mv.IsTake == false);
+            actual.ShouldContain(mv => mv.Destination.Rank == _6 && mv.Destination.File == D && mv.IsTake == false);
+            actual.ShouldContain(mv => mv.Destination.Rank == _6 && mv.Destination.File == F && mv.IsTake == false);
 
-            actual.ShouldContain(mv => mv.Destination.Rank == Rank5 && mv.Destination.File == G && mv.IsTake == false);
-            actual.ShouldContain(mv => mv.Destination.Rank == Rank3 && mv.Destination.File == G && mv.IsTake == false);
+            actual.ShouldContain(mv => mv.Destination.Rank == _5 && mv.Destination.File == G && mv.IsTake == false);
+            actual.ShouldContain(mv => mv.Destination.Rank == _3 && mv.Destination.File == G && mv.IsTake == false);
 
-            actual.ShouldContain(mv => mv.Destination.Rank == Rank2 && mv.Destination.File == D && mv.IsTake == true);
-            actual.ShouldContain(mv => mv.Destination.Rank == Rank2 && mv.Destination.File == F && mv.IsTake == false);
+            actual.ShouldContain(mv => mv.Destination.Rank == _2 && mv.Destination.File == D && mv.IsTake == true);
+            actual.ShouldContain(mv => mv.Destination.Rank == _2 && mv.Destination.File == F && mv.IsTake == false);
 
-            actual.ShouldContain(mv => mv.Destination.Rank == Rank5 && mv.Destination.File == C && mv.IsTake == false);
-            actual.ShouldContain(mv => mv.Destination.Rank == Rank3 && mv.Destination.File == C && mv.IsTake == false);
+            actual.ShouldContain(mv => mv.Destination.Rank == _5 && mv.Destination.File == C && mv.IsTake == false);
+            actual.ShouldContain(mv => mv.Destination.Rank == _3 && mv.Destination.File == C && mv.IsTake == false);
         }
     }
 }

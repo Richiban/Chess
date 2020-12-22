@@ -16,7 +16,7 @@ namespace Tests
         {
             var sut = new King(Colour.White);
             var board = new Board();
-            var position = new Position(Rank4, File.E);
+            var position = new Position(E, _4);
 
             var actual = sut.GetLegalMoves(board, position, isFirstMove: false).ToList();
 
@@ -24,16 +24,16 @@ namespace Tests
             actual.ShouldAllBe(mv => mv.Piece == sut);
             actual.ShouldAllBe(mv => mv.Origin == position);
 
-            actual.ShouldContain(pos => pos.Destination.Rank == Rank3 && pos.Destination.File == D);
-            actual.ShouldContain(pos => pos.Destination.Rank == Rank3 && pos.Destination.File == E);
-            actual.ShouldContain(pos => pos.Destination.Rank == Rank3 && pos.Destination.File == F);
+            actual.ShouldContain(pos => pos.Destination.Rank == _3 && pos.Destination.File == D);
+            actual.ShouldContain(pos => pos.Destination.Rank == _3 && pos.Destination.File == E);
+            actual.ShouldContain(pos => pos.Destination.Rank == _3 && pos.Destination.File == F);
 
-            actual.ShouldContain(pos => pos.Destination.Rank == Rank4 && pos.Destination.File == D);
-            actual.ShouldContain(pos => pos.Destination.Rank == Rank4 && pos.Destination.File == F);
+            actual.ShouldContain(pos => pos.Destination.Rank == _4 && pos.Destination.File == D);
+            actual.ShouldContain(pos => pos.Destination.Rank == _4 && pos.Destination.File == F);
 
-            actual.ShouldContain(pos => pos.Destination.Rank == Rank5 && pos.Destination.File == D);
-            actual.ShouldContain(pos => pos.Destination.Rank == Rank5 && pos.Destination.File == E);
-            actual.ShouldContain(pos => pos.Destination.Rank == Rank5 && pos.Destination.File == F);
+            actual.ShouldContain(pos => pos.Destination.Rank == _5 && pos.Destination.File == D);
+            actual.ShouldContain(pos => pos.Destination.Rank == _5 && pos.Destination.File == E);
+            actual.ShouldContain(pos => pos.Destination.Rank == _5 && pos.Destination.File == F);
         }
 
         [Test]
@@ -41,7 +41,7 @@ namespace Tests
         {
             var sut = new King(Colour.White);
             var board = new Board();
-            var position = new Position(Rank4, File.A);
+            var position = new Position(A, _4);
 
             var actual = sut.GetLegalMoves(board, position, isFirstMove: false).ToList();
 
@@ -51,20 +51,20 @@ namespace Tests
             actual.ShouldAllBe(mv => mv.Piece == sut);
             actual.ShouldAllBe(mv => mv.Origin == position);
 
-            actual.ShouldContain(pos => pos.Destination.Rank == Rank3 && pos.Destination.File == A);
-            actual.ShouldContain(pos => pos.Destination.Rank == Rank5 && pos.Destination.File == A);
+            actual.ShouldContain(pos => pos.Destination.Rank == _3 && pos.Destination.File == A);
+            actual.ShouldContain(pos => pos.Destination.Rank == _5 && pos.Destination.File == A);
 
-            actual.ShouldContain(pos => pos.Destination.Rank == Rank3 && pos.Destination.File == B);
-            actual.ShouldContain(pos => pos.Destination.Rank == Rank4 && pos.Destination.File == B);
-            actual.ShouldContain(pos => pos.Destination.Rank == Rank5 && pos.Destination.File == B);
+            actual.ShouldContain(pos => pos.Destination.Rank == _3 && pos.Destination.File == B);
+            actual.ShouldContain(pos => pos.Destination.Rank == _4 && pos.Destination.File == B);
+            actual.ShouldContain(pos => pos.Destination.Rank == _5 && pos.Destination.File == B);
         }
 
         [Test]
         public void BlockedMoveInMiddleOfBoard()
         {
             var sut = new King(Colour.White);
-            var position = new Position(Rank4, E);
-            var board = new Board(new Placement(new Pawn(Colour.White), new(Rank3, E)));
+            var position = new Position(E, _4);
+            var board = new Board(new Placement(new Pawn(Colour.White), new(E, _3)));
 
             var actual = sut.GetLegalMoves(board, position, isFirstMove: false).ToList();
 
@@ -72,15 +72,15 @@ namespace Tests
             actual.ShouldAllBe(mv => mv.Piece == sut);
             actual.ShouldAllBe(mv => mv.Origin == position);
 
-            actual.ShouldContain(pos => pos.Destination.Rank == Rank3 && pos.Destination.File == D);
-            actual.ShouldContain(pos => pos.Destination.Rank == Rank3 && pos.Destination.File == F);
+            actual.ShouldContain(pos => pos.Destination.Rank == _3 && pos.Destination.File == D);
+            actual.ShouldContain(pos => pos.Destination.Rank == _3 && pos.Destination.File == F);
 
-            actual.ShouldContain(pos => pos.Destination.Rank == Rank4 && pos.Destination.File == D);
-            actual.ShouldContain(pos => pos.Destination.Rank == Rank4 && pos.Destination.File == F);
+            actual.ShouldContain(pos => pos.Destination.Rank == _4 && pos.Destination.File == D);
+            actual.ShouldContain(pos => pos.Destination.Rank == _4 && pos.Destination.File == F);
 
-            actual.ShouldContain(pos => pos.Destination.Rank == Rank5 && pos.Destination.File == D);
-            actual.ShouldContain(pos => pos.Destination.Rank == Rank5 && pos.Destination.File == E);
-            actual.ShouldContain(pos => pos.Destination.Rank == Rank5 && pos.Destination.File == F);
+            actual.ShouldContain(pos => pos.Destination.Rank == _5 && pos.Destination.File == D);
+            actual.ShouldContain(pos => pos.Destination.Rank == _5 && pos.Destination.File == E);
+            actual.ShouldContain(pos => pos.Destination.Rank == _5 && pos.Destination.File == F);
         }
     }
 }

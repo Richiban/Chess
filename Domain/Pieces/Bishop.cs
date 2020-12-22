@@ -19,7 +19,7 @@ namespace Richiban.Chess.Domain
         public override IEnumerable<Move> GetLegalMoves(Board board, Position currentPosition, bool _ = default)
         {
             var moves =
-                GetMoveSquares(currentPosition)
+                GetMoveSquares(board, currentPosition)
                 .SelectWhere(pos =>
                 {
                     if (board.IsEmpty(pos))
@@ -36,9 +36,37 @@ namespace Richiban.Chess.Domain
             return moves;
         }
 
-        private IEnumerable<Position> GetMoveSquares(Position currentPosition)
+        private IEnumerable<Position> GetMoveSquares(Board board, Position currentPosition)
         {
-            throw new NotImplementedException();
+            var directions =
+                Bcl.Enumerable.Unreduce(new ChessVector(1, 1), v => v.RotateRight(ChessVector.RotateAngle.OneInFour))
+                .Take(4);
+
+            foreach (var direction in directions)
+            {
+                var current = currentPosition;
+
+                do
+                {
+                    if (!(current + direction).IsSome(out var newPosition)) break;
+
+                    if (board.IsEmpty(newPosition))
+                    {
+                        yield return newPosition;
+
+                        current = newPosition;
+                    }
+                    else
+                    {
+                        if (board.GetOccupant(newPosition).IsSome(out var piece) && CanTake(piece))
+                        {
+                            yield return newPosition;
+                            break;
+                        }
+                        break;
+                    }
+                } while (true);
+            }
         }
     }
 }
