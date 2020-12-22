@@ -9,7 +9,7 @@ namespace Chess
     {
         static void Main(string[] args)
         {
-            var piece = new Knight(Colour.White);
+            var piece = new Queen(Colour.White);
             var board = new Board(new Placement(new Pawn(Colour.Black), E6));
             var currentPosition = E4;
 
