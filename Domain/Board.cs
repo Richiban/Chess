@@ -6,16 +6,16 @@ using static Richiban.Chess.Domain.Positions;
 
 namespace Richiban.Chess.Domain
 {
-    public class Board
+    public class BoardState
     {
         private readonly ImmutableList<Placement> _placements;
 
-        public Board(params Placement[] startingPlacements)
+        public BoardState(params Placement[] startingPlacements)
         {
             _placements = startingPlacements.ToImmutableList();
         }
 
-        public static Board StartingBoard => new Board(
+        public static BoardState StartingBoard => new BoardState(
             new Placement(new Pawn(Colour.White), A2),
             new Placement(new Pawn(Colour.White), B2),
             new Placement(new Pawn(Colour.White), C2),
@@ -62,12 +62,10 @@ namespace Richiban.Chess.Domain
 
         public IReadOnlyCollection<Placement> Placements => _placements;
 
-        internal Option<Piece> GetOccupant(Position position)
-        {
-            return Placements.FirstOrNone(pos => pos.Position.Equals(position)).Map(it => it.Piece);
-        }
+        public Option<Piece> this[Position position] =>
+            Placements.FirstOrNone(pos => pos.Position.Equals(position)).Map(it => it.Piece);
 
         internal bool IsEmpty(Position position) =>
-            GetOccupant(position).HasValue == false;
+            this[position].HasValue == false;
     }
 }

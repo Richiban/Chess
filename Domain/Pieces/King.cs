@@ -15,7 +15,7 @@ namespace Richiban.Chess.Domain
 
         public override Colour Colour { get; }
 
-        public override IEnumerable<Move> GetLegalMoves(Board board, Position currentPosition, bool isFirstMove)
+        public override IEnumerable<Move> GetLegalMoves(BoardState board, Position currentPosition, bool isFirstMove)
         {
             var moves =
                 GetMoveSquares(currentPosition)
@@ -24,7 +24,7 @@ namespace Richiban.Chess.Domain
                     if (board.IsEmpty(pos))
                         return new Move(this, currentPosition, pos);
 
-                    if (board.GetOccupant(pos).IsSome(out var piece) && CanTake(piece))
+                    if (board[pos].IsSome(out var piece) && CanTake(piece))
                     {
                         return new Move(this, currentPosition, pos) { IsTake = true };
                     }
@@ -37,7 +37,6 @@ namespace Richiban.Chess.Domain
 
         private IEnumerable<Position> GetMoveSquares(Position currentPosition) =>
             new ChessVector(+1, +1).GetRotations(ChessVector.RotateAngle.OneInEight)
-                .Take(8)
                 .Select(v => Colour.Advance(currentPosition, v))
                 .Somes();
     }

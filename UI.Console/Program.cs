@@ -1,12 +1,13 @@
 ﻿using System;
+using static System.Console;
 
-namespace UI.Console
+namespace Richiban.Chess.UI.Console
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            WriteLine("Hello World!");
         }
     }
 }

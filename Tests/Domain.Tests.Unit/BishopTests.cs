@@ -14,7 +14,7 @@ namespace Tests
         public void UnblockedMovesInMiddleOfBoard()
         {
             var sut = new Bishop(Colour.White);
-            var board = new Board();
+            var board = new BoardState();
             var position = E4;
 
             var actual = sut.GetLegalMoves(board, position).ToList();
@@ -44,7 +44,7 @@ namespace Tests
         {
             var sut = new Bishop(Colour.White);
             var position = E4;
-            var board = new Board(new Placement(new Bishop(Colour.White), F5));
+            var board = new BoardState(new Placement(new Bishop(Colour.White), F5));
 
             var actual = sut.GetLegalMoves(board, position).ToList();
 
@@ -69,7 +69,7 @@ namespace Tests
         {
             var sut = new Bishop(Colour.White);
             var position = E4;
-            var board = new Board(new Placement(new Bishop(Colour.Black), F5));
+            var board = new BoardState(new Placement(new Bishop(Colour.Black), F5));
 
             var actual = sut.GetLegalMoves(board, position).ToList();
 

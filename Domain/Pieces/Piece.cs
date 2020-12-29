@@ -9,7 +9,7 @@ namespace Richiban.Chess.Domain
 
         public bool CanTake(Piece other) => other.Colour != this.Colour;
 
-        public abstract IEnumerable<Move> GetLegalMoves(Board board, Position currentPosition, bool isFirstMove);
+        public abstract IEnumerable<Move> GetLegalMoves(BoardState board, Position currentPosition, bool isFirstMove);
 
         public override string ToString() => Name;
     }

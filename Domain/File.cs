@@ -10,14 +10,14 @@ namespace Richiban.Chess.Domain
 
         public string Name { get; }
 
-        public static File A { get; } = new File("A");
-        public static File B { get; } = new File("B");
-        public static File C { get; } = new File("C");
-        public static File D { get; } = new File("D");
-        public static File E { get; } = new File("E");
-        public static File F { get; } = new File("F");
-        public static File G { get; } = new File("G");
-        public static File H { get; } = new File("H");
+        public static File A { get; } = new File("a");
+        public static File B { get; } = new File("b");
+        public static File C { get; } = new File("c");
+        public static File D { get; } = new File("d");
+        public static File E { get; } = new File("e");
+        public static File F { get; } = new File("f");
+        public static File G { get; } = new File("g");
+        public static File H { get; } = new File("h");
 
         public override string ToString() => Name;
 

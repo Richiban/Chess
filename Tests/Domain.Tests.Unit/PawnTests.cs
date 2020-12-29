@@ -15,7 +15,7 @@ namespace Tests
         public void TestBasicMove()
         {
             var sut = new Pawn(Colour.White);
-            var board = new Board();
+            var board = new BoardState();
             var position = new Position(E, _2);
 
             var actual = sut.GetLegalMoves(board, position).ToList();
@@ -33,7 +33,7 @@ namespace Tests
         {
             var sut = new Pawn(Colour.White);
             var position = new Position(E, _2);
-            var board = new Board(new Placement(new Pawn(Colour.Black), new Position(E, _3)));
+            var board = new BoardState(new Placement(new Pawn(Colour.Black), new Position(E, _3)));
 
             var actual = sut.GetLegalMoves(board, position).ToList();
 
@@ -45,7 +45,7 @@ namespace Tests
         {
             var sut = new Pawn(Colour.White);
             var position = new Position(E, _2);
-            var board = new Board(new Placement(new Pawn(Colour.Black), new Position(E, _3)));
+            var board = new BoardState(new Placement(new Pawn(Colour.Black), new Position(E, _3)));
 
             var actual = sut.GetLegalMoves(board, position, isFirstMove: true).ToList();
 
@@ -57,7 +57,7 @@ namespace Tests
         {
             var sut = new Pawn(Colour.White);
             var position = new Position(E, _2);
-            var board = new Board(new Placement(sut, position));
+            var board = new BoardState(new Placement(sut, position));
 
             var actual = sut.GetLegalMoves(board, position, isFirstMove: true).ToList();
 
@@ -76,7 +76,7 @@ namespace Tests
         public void TestTakeMoveAndStraightMove()
         {
             var sut = new Pawn(Colour.White);
-            var board = new Board(new Placement(new Pawn(Colour.Black), new Position(F, _3)));
+            var board = new BoardState(new Placement(new Pawn(Colour.Black), new Position(F, _3)));
             var position = new Position(E, _2);
 
             var actual = sut.GetLegalMoves(board, position).ToList();

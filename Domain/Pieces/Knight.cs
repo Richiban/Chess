@@ -15,7 +15,7 @@ namespace Richiban.Chess.Domain
         public override string Name => nameof(Knight);
         public override Colour Colour { get; }
 
-        public override IEnumerable<Move> GetLegalMoves(Board board, Position currentPosition, bool _ = default)
+        public override IEnumerable<Move> GetLegalMoves(BoardState board, Position currentPosition, bool _ = default)
         {
             var moves =
                 GetMoveSquares(currentPosition)
@@ -24,7 +24,7 @@ namespace Richiban.Chess.Domain
                     if (board.IsEmpty(pos))
                         return new Move(this, currentPosition, pos);
 
-                    if (board.GetOccupant(pos).IsSome(out var piece) && CanTake(piece))
+                    if (board[pos].IsSome(out var piece) && CanTake(piece))
                     {
                         return new Move(this, currentPosition, pos) { IsTake = true };
                     }

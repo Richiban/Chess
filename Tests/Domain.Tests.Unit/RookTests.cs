@@ -14,7 +14,7 @@ namespace Tests
         public void UnblockedMovesInMiddleOfBoard()
         {
             var sut = new Rook(Colour.White);
-            var board = new Board();
+            var board = new BoardState();
             var position = E4;
 
             var actual = sut.GetLegalMoves(board, position).ToList();
@@ -43,7 +43,7 @@ namespace Tests
         {
             var sut = new Rook(Colour.White);
             var position = E4;
-            var board = new Board(new Placement(new Rook(Colour.White), E6));
+            var board = new BoardState(new Placement(new Rook(Colour.White), E6));
 
             var actual = sut.GetLegalMoves(board, position).ToList();
 
@@ -68,7 +68,7 @@ namespace Tests
         {
             var sut = new Rook(Colour.White);
             var position = E4;
-            var board = new Board(new Placement(new Rook(Colour.Black), E6));
+            var board = new BoardState(new Placement(new Rook(Colour.Black), E6));
 
             var actual = sut.GetLegalMoves(board, position).ToList();
 

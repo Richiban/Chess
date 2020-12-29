@@ -2,25 +2,24 @@
 using Richiban.Chess.Domain;
 using static Richiban.Chess.Domain.Positions;
 using System.Linq;
+using Richiban.Chess.Serialization;
 
-namespace Chess
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            var piece = new Queen(Colour.White);
-            var board = new Board(new Placement(new Pawn(Colour.Black), E6));
-            var currentPosition = E4;
 
-            var moves = piece.GetLegalMoves(board, currentPosition).ToList();
+var q = new Queen(Colour.White);
+var q2 = new Queen(Colour.Black);
 
-            Console.WriteLine($"{piece} moves ({moves.Count}) from {currentPosition}:");
+var board = new BoardState(
+    new(q, E6),
+    new(q2, F7));
 
-            foreach (var move in moves)
-            {
-                Console.WriteLine(move);
-            }
-        }
-    }
-}
+var move1 = q.GetLegalMoves(board, E6).First();
+
+var game = new Game(move1);
+
+var move2 = q2.GetLegalMoves(board, H7).First();
+
+game = game.WithMove(move2);
+
+var s = new GameSerializer(new MoveSerializer(new PieceSerializer()));
+
+Console.WriteLine(s.Serialize(game));

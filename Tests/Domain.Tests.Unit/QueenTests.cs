@@ -14,7 +14,7 @@ namespace Tests
         public void UnblockedMovesInMiddleOfBoard()
         {
             var sut = new Queen(Colour.White);
-            var board = new Board();
+            var board = new BoardState();
             var position = E4;
 
             var actual = sut.GetLegalMoves(board, position).ToList();
@@ -60,7 +60,7 @@ namespace Tests
         {
             var sut = new Queen(Colour.White);
             var position = E4;
-            var board = new Board(new Placement(new Pawn(Colour.White), D3));
+            var board = new BoardState(new Placement(new Pawn(Colour.White), D3));
 
             var actual = sut.GetLegalMoves(board, position).ToList();
 
@@ -101,7 +101,7 @@ namespace Tests
         {
             var sut = new Queen(Colour.White);
             var position = E4;
-            var board = new Board(new Placement(new Pawn(Colour.Black), D3));
+            var board = new BoardState(new Placement(new Pawn(Colour.Black), D3));
 
             var actual = sut.GetLegalMoves(board, position).ToList();
 

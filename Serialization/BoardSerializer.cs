@@ -1,14 +1,12 @@
-﻿using System;
-using Richiban.Chess.Domain;
+﻿using Richiban.Chess.Domain;
 
 namespace Richiban.Chess.Serialization
 {
-    public class BoardSerializer : IChessSerializer<Board>
+    public class BoardSerializer : IChessSerializer<BoardState>
     {
-        public string Serialize(Board item)
+        public string Serialize(BoardState item)
         {
             return "";
         }
     }
-
 }

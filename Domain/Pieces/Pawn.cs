@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using Richiban.Chess.Bcl;
 
 namespace Richiban.Chess.Domain
 {
@@ -13,19 +15,21 @@ namespace Richiban.Chess.Domain
 
         public override Colour Colour { get; }
 
-        public override IEnumerable<Move> GetLegalMoves(Board boardState, Position currentPosition, bool isFirstMove = false)
+        public override IEnumerable<Move> GetLegalMoves(BoardState boardState, Position currentPosition, bool isFirstMove = false)
         {
             var moveSquare = Colour.Advance(currentPosition, new ChessVector(0, 1));
             var moveSquare2 = Colour.Advance(currentPosition, new ChessVector(0, 2));
             var attackSquareLeft = Colour.Advance(currentPosition, new ChessVector(-1, +1));
             var attackSquareRight = Colour.Advance(currentPosition, new ChessVector(+1, +1));
 
-            if (attackSquareLeft.Bind(boardState.GetOccupant).Map(CanTake) | false)
+            Func<Position, Option<Piece>> getOccupant = (pos) => boardState[pos];
+
+            if (attackSquareLeft.Bind(getOccupant).Map(CanTake) | false)
             {
                 yield return new Move(this, currentPosition, attackSquareLeft.Force()) { IsTake = true };
             }
 
-            if (attackSquareRight.Bind(boardState.GetOccupant).Map(CanTake) | false)
+            if (attackSquareRight.Bind(getOccupant).Map(CanTake) | false)
             {
                 yield return new Move(this, currentPosition, attackSquareRight.Force()) { IsTake = true };
             }
